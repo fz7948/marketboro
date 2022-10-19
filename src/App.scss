@@ -1,0 +1,94 @@
+$main: #f73d5c;
+$dark: #191919;
+$mediumdark: rgba(0, 0, 0, 0.7);
+$light: #e8e8e8;
+$lightdark: #666;
+$basicBoxShadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 600;
+  color: $mediumdark;
+  user-select: none;
+}
+html,
+body {
+  width: 100vw;
+}
+
+// mainPage
+.mainPage {
+  display: flex;
+  height: 100vh;
+  max-height: 1080px;
+  max-width: 1600px;
+  // background: #ccc;
+  padding: 1rem;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  .product {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(106px, auto));
+    grid-auto-rows: 5rem;
+    padding: 1rem;
+    margin-right: 0.3rem;
+    row-gap: 10px;
+    column-gap: 20px;
+    place-items: center center;
+    overflow: overlay;
+    box-shadow: $basicBoxShadow;
+    &_item {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      background: $light;
+      border-radius: 8px;
+    }
+  }
+  .order {
+    flex: 1;
+    padding: 1rem;
+    margin-left: 0.3rem;
+    box-shadow: $basicBoxShadow;
+    &_title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 4rem;
+      background-color: $light;
+      border-radius: 5px;
+    }
+  }
+}
+
+// notFoundPage
+.notFoundPage {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+// scroll custom
+::-webkit-scrollbar {
+  width: 10px;
+  overflow: overlay;
+}
+::-webkit-scrollbar-thumb {
+  height: 17%;
+  background-color: hsla(0, 0%, 15%, 0.29);
+  border-radius: 10px;
+}
