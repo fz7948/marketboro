@@ -12,7 +12,7 @@ const Product = (props: IProductProps) => {
     <>
       {data &&
         data.map((list) => (
-          <React.Fragment key={list.name}>
+          <React.Fragment key={list.id}>
             {list.check ? (
               <button className="product_item product_check">
                 {list.name}

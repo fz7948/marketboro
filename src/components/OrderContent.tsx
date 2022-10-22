@@ -11,7 +11,7 @@ const OrderContent = () => {
       <div className={`${ORDER_CLASS_TYPE.order_list_unitName}`}>단위</div>
       <div className={`${ORDER_CLASS_TYPE.order_list_unitPrice}`}>단가</div>
       <div className={`${ORDER_CLASS_TYPE.order_list_count}`}>수량</div>
-      <div className={`${ORDER_CLASS_TYPE.order_list_empty}`} />
+      <div className={`${ORDER_CLASS_TYPE.order_list_etc}`} />
     </div>
   );
 };

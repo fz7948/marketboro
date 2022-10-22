@@ -4,5 +4,5 @@ export const ORDER_CLASS_TYPE = {
   order_list_unitName: "order_list_unitName",
   order_list_unitPrice: "order_list_unitPrice",
   order_list_count: "order_list_count",
-  order_list_empty: "order_list_empty",
+  order_list_etc: "order_list_etc",
 };

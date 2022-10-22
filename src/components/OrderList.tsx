@@ -29,7 +29,7 @@ const OrderList = (props: IOrderListProps) => {
           onChange={(e) => onOrderUpdate(data, +e.target.value)}
         ></input>
       </div>
-      <div className={`${ORDER_CLASS_TYPE.order_list_empty}`}>
+      <div className={`${ORDER_CLASS_TYPE.order_list_etc}`}>
         <button
           className="order_list_btn"
           onClick={() => onOrderRemove(data.id)}

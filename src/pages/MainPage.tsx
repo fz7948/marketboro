@@ -89,14 +89,20 @@ const MainPage = () => {
         <h3 className="order_title">주문 목록</h3>
         <OrderContent />
         <div className="order_itemContainer">
-          {orders.map((order) => (
-            <OrderList
-              key={order.name}
-              data={order}
-              onOrderUpdate={handleOrderUpdate}
-              onOrderRemove={handleOrderRemove}
-            />
-          ))}
+          {orders.length ? (
+            <>
+              {orders.map((order) => (
+                <OrderList
+                  key={order.id}
+                  data={order}
+                  onOrderUpdate={handleOrderUpdate}
+                  onOrderRemove={handleOrderRemove}
+                />
+              ))}
+            </>
+          ) : (
+            <div className="order_empty">상품을 추가해주세요.</div>
+          )}
         </div>
         <div className="order_result">
           <OrderResult data={orders} />
