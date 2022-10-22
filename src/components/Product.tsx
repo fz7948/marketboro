@@ -31,4 +31,4 @@ const Product = (props: IProductProps) => {
   );
 };
 
-export default memo(Product);
+export default Product;

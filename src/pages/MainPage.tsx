@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 // redux
 import {
   ItemsProps,
@@ -24,22 +24,19 @@ const MainPage = () => {
     dispatch(getProductsInStorage());
   }, []);
 
-  const handleProductClick = useCallback(
-    (list: ItemsProps) => {
-      const selectIndex = orders.findIndex((order) => order.id === list.id);
-      const checkIndex = data?.findIndex((item) => item.id === list.id);
-      if (selectIndex === -1 && checkIndex != undefined) {
-        // check product
-        const newProducts = { ...data, [checkIndex]: { ...list, check: true } };
-        dispatch(setProductCheck(Object.values(newProducts)));
-        // add order
-        const newOrders = [...orders, { ...list, count: 1 }];
-        newOrders.sort((a, b) => a.id - b.id);
-        setOrders(newOrders);
-      }
-    },
-    [data],
-  );
+  const handleProductClick = (list: ItemsProps) => {
+    const selectIndex = orders.findIndex((order) => order.id === list.id);
+    const checkIndex = data?.findIndex((item) => item.id === list.id);
+    if (selectIndex === -1 && checkIndex != undefined) {
+      // check product
+      const newProducts = { ...data, [checkIndex]: { ...list, check: true } };
+      dispatch(setProductCheck(Object.values(newProducts)));
+      // add order
+      const newOrders = [...orders, { ...list, count: 1 }];
+      newOrders.sort((a, b) => a.id - b.id);
+      setOrders(newOrders);
+    }
+  };
 
   const handleOrderUpdate = (list: IProductProps, count: number) => {
     const makeOrdersToArray = (orderList: IProductProps[]) => {
