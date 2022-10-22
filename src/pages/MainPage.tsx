@@ -1,40 +1,56 @@
-import React, { useEffect, useState } from "react";
-import items from "../data/items.json";
+import React, { useEffect, useState, useCallback } from "react";
+// redux
+import {
+  ItemsProps,
+  IProductProps,
+  setProductCheck,
+  getProductsInStorage,
+} from "../redux/productSlice";
+import { useAppDispatch, useAppSelector } from "../redux/store";
+// custom component
+import Product from "../components/Product";
+import OrderContent from "../components/OrderContent";
 import OrderList from "../components/OrderList";
 import OrderResult from "../components/OrderResult";
-import { ItemsProps } from "./main";
-
-export interface IProductProps extends ItemsProps {
-  count: number;
-}
 
 const MainPage = () => {
+  const dispatch = useAppDispatch();
+  const productSlice = useAppSelector((state) => state.product);
+
+  const { data } = productSlice;
   const [orders, setOrders] = useState<IProductProps[]>([]);
 
-  const makeOrdersToArray = (orderList: IProductProps[]) => {
-    return Object.values(orderList);
-  };
+  useEffect(() => {
+    dispatch(getProductsInStorage());
+  }, []);
 
-  const handleProductClick = (list: ItemsProps) => {
-    const selectIndex = orders.findIndex((order) => order.name === list.name);
-    if (selectIndex !== -1) {
-      const updateOrders = {
-        ...orders,
-        [selectIndex]: { ...list, count: orders[selectIndex].count + 1 },
-      };
-      setOrders(makeOrdersToArray(updateOrders));
-    } else {
-      const newOrders = [...orders, { ...list, count: 1 }];
-      newOrders.sort((a, b) => a.id - b.id);
-      setOrders(newOrders);
-    }
-  };
+  const handleProductClick = useCallback(
+    (list: ItemsProps) => {
+      const selectIndex = orders.findIndex((order) => order.id === list.id);
+      const checkIndex = data?.findIndex((item) => item.id === list.id);
+      if (selectIndex === -1 && checkIndex != undefined) {
+        // check product
+        const newProducts = { ...data, [checkIndex]: { ...list, check: true } };
+        dispatch(setProductCheck(Object.values(newProducts)));
+        // add order
+        const newOrders = [...orders, { ...list, count: 1 }];
+        newOrders.sort((a, b) => a.id - b.id);
+        setOrders(newOrders);
+      }
+    },
+    [data],
+  );
 
   const handleOrderUpdate = (list: IProductProps, count: number) => {
-    const selectIndex = orders.findIndex((order) => order.name === list.name);
+    const makeOrdersToArray = (orderList: IProductProps[]) => {
+      return Object.values(orderList);
+    };
+    const selectIndex = orders.findIndex((order) => order.id === list.id);
+    // input 입력 값 0 이하 제외, 0이면 1로 변경
     if (selectIndex === -1) return;
     if (count < 0) return;
     if (count === 0) count = 1;
+    // order update
     const updateOrders = {
       ...orders,
       [selectIndex]: { ...list, count },
@@ -42,39 +58,41 @@ const MainPage = () => {
     setOrders(makeOrdersToArray(updateOrders));
   };
 
-  const handleOrderRemove = (name: string) => {
-    const newOrders = orders.reduce((res, cur) => {
-      if (name === cur.name) {
-        return res;
-      }
-      return [...res, cur];
-    }, []);
-    setOrders(newOrders);
+  const handleOrderRemove = (id: number) => {
+    const checkIndex = data?.findIndex((item) => item.id === id);
+    if (data && checkIndex != undefined) {
+      // not check product
+      const newItem = { ...data[checkIndex] };
+      delete newItem.check;
+      const newProducts = {
+        ...data,
+        [checkIndex]: { ...newItem },
+      };
+      dispatch(setProductCheck(Object.values(newProducts)));
+      // remove order
+      const newOrders = orders.reduce((res, cur) => {
+        if (id === cur.id) {
+          return res;
+        }
+        return [...res, cur];
+      }, []);
+      setOrders(newOrders);
+    }
   };
 
-  // items 리스트가 없을때 로직도 추가해야함
   return (
     <div className="mainPage">
       <div className="product">
-        {items.map((list) => (
-          <button
-            className="product_item"
-            key={list.name}
-            onClick={() => handleProductClick(list)}
-          >
-            {list.name}
-          </button>
-        ))}
+        <Product data={data} onProductClick={handleProductClick} />
       </div>
       <div className="order">
         <h3 className="order_title">주문 목록</h3>
-        <OrderList head />
+        <OrderContent />
         <div className="order_itemContainer">
           {orders.map((order) => (
             <OrderList
               key={order.name}
               data={order}
-              head={false}
               onOrderUpdate={handleOrderUpdate}
               onOrderRemove={handleOrderRemove}
             />

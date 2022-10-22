@@ -71,6 +71,15 @@ body {
         left: 4px;
       }
     }
+    &_check {
+      box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+      position: relative;
+      top: 4px;
+      left: 4px;
+      background-color: $darkGreen;
+      opacity: 0.9;
+      color: #fff;
+    }
   }
   .order {
     flex: 1;
@@ -187,7 +196,7 @@ body {
   font-size: 1.5rem;
 }
 
-// scroll custom
+// custom scroll
 ::-webkit-scrollbar {
   width: 10px;
   overflow: overlay;

@@ -1,5 +1,5 @@
 import React from "react";
-import { IProductProps } from "../pages/MainPage";
+import { IProductProps } from "../redux/productSlice";
 
 interface IOrderResultProps {
   data?: IProductProps[];
