@@ -47,10 +47,11 @@ const MainPage = () => {
     if (selectIndex === -1) return;
     if (count < 0) return;
     if (count === 0) count = 1;
+
     // order update
     const updateOrders = {
       ...orders,
-      [selectIndex]: { ...list, count },
+      [selectIndex]: { ...list, count: parseInt(`${count}`, 10) },
     };
     setOrders(makeOrdersToArray(updateOrders));
   };

@@ -21,11 +21,11 @@ const OrderResult = (props: IOrderResultProps) => {
   return (
     <>
       <div className="order_result_totalCount">
-        <text>{`총 주문 수량: ${totalCount}`}</text>
+        <div>{`총 주문 수량: ${totalCount}`}</div>
       </div>
       <div className="order_result_totalPrice">
         <h3>합계</h3>
-        <text>{`: ${totalPrice?.toLocaleString()}`}</text>
+        <div>{`: ${totalPrice?.toLocaleString()}`}</div>
       </div>
     </>
   );
