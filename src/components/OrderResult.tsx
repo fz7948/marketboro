@@ -21,9 +21,9 @@ const OrderResult = (props: IOrderResultProps) => {
   return (
     <>
       <div className="order_result_totalCount">
-        <div>{`총 주문 수량: ${totalCount}`}</div>
+        <div data-cy="totalCount">{`총 주문 수량: ${totalCount}`}</div>
       </div>
-      <div className="order_result_totalPrice">
+      <div data-cy="totalPrice" className="order_result_totalPrice">
         <h3>합계</h3>
         <div>{`: ${totalPrice?.toLocaleString()}`}</div>
       </div>

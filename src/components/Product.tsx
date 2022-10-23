@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { ItemsProps } from "../redux/productSlice";
 
 interface IProductProps {
@@ -14,11 +14,15 @@ const Product = (props: IProductProps) => {
         data.map((list) => (
           <React.Fragment key={list.id}>
             {list.check ? (
-              <button className="product_item product_check">
+              <button
+                data-cy="product_check"
+                className="product_item product_check"
+              >
                 {list.name}
               </button>
             ) : (
               <button
+                data-cy="product_unCheck"
                 className="product_item"
                 onClick={() => onProductClick(list)}
               >

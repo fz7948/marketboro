@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "상추",
+    "unitName": "BOX",
+    "unitPrice": 10000
+  },
+  {
+    "id": 2,
+    "name": "삼겹살",
+    "unitName": "KG",
+    "unitPrice": 15000
+  },
+  {
+    "id": 3,
+    "name": "대파",
+    "unitName": "단",
+    "unitPrice": 2000
+  },
+  {
+    "id": 4,
+    "name": "양파",
+    "unitName": "망",
+    "unitPrice": 10000
+  },
+  {
+    "id": 5,
+    "name": "맥심 커피믹스",
+    "unitName": "BOX",
+    "unitPrice": 7000
+  },
+  {
+    "id": 6,
+    "name": "오이",
+    "unitName": "BOX",
+    "unitPrice": 9000
+  },
+  {
+    "id": 7,
+    "name": "김치",
+    "unitName": "봉지",
+    "unitPrice": 10000
+  },
+  {
+    "id": 8,
+    "name": "고추",
+    "unitName": "BOX",
+    "unitPrice": 6000
+  },
+  {
+    "id": 9,
+    "name": "오징어",
+    "unitName": "마리",
+    "unitPrice": 2000
+  },
+  {
+    "id": 10,
+    "name": "소고기(한우)",
+    "unitName": "KG",
+    "unitPrice": 120000
+  },
+  {
+    "id": 11,
+    "name": "신라면",
+    "unitName": "BOX",
+    "unitPrice": 16700
+  },
+  {
+    "id": 12,
+    "name": "오뚜기 케찹",
+    "unitName": "통",
+    "unitPrice": 6000
+  },
+  {
+    "id": 13,
+    "name": "미나리",
+    "unitName": "BOX",
+    "unitPrice": 6000
+  },
+  {
+    "id": 14,
+    "name": "쌈장",
+    "unitName": "통",
+    "unitPrice": 24000
+  },
+  {
+    "id": 15,
+    "name": "쌀",
+    "unitName": "포대",
+    "unitPrice": 45000
+  },
+  {
+    "id": 16,
+    "name": "밀가루",
+    "unitName": "봉",
+    "unitPrice": 7000
+  },
+  {
+    "id": 17,
+    "name": "배추",
+    "unitName": "포기",
+    "unitPrice": 4000
+  },
+  {
+    "id": 18,
+    "name": "참치 통조림",
+    "unitName": "캔",
+    "unitPrice": 2000
+  },
+  {
+    "id": 19,
+    "name": "파프리카",
+    "unitName": "BOX",
+    "unitPrice": 11000
+  },
+  {
+    "id": 20,
+    "name": "아보카도",
+    "unitName": "BOX",
+    "unitPrice": 20000
+  }
+]

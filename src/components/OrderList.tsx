@@ -13,16 +13,26 @@ interface IOrderListProps {
 const OrderList = (props: IOrderListProps) => {
   const { data, onOrderUpdate, onOrderRemove } = props;
   return (
-    <div className={`${ORDER_CLASS_TYPE.order_list}`}>
+    <div
+      data-cy={`${ORDER_CLASS_TYPE.order_list}`}
+      className={`${ORDER_CLASS_TYPE.order_list}`}
+    >
       <div className={`${ORDER_CLASS_TYPE.order_list_name}`}>{data.name}</div>
-      <div className={`${ORDER_CLASS_TYPE.order_list_unitName}`}>
+      <div
+        data-cy="unitName"
+        className={`${ORDER_CLASS_TYPE.order_list_unitName}`}
+      >
         {data.unitName}
       </div>
-      <div className={`${ORDER_CLASS_TYPE.order_list_unitPrice}`}>
+      <div
+        data-cy="unitPrice"
+        className={`${ORDER_CLASS_TYPE.order_list_unitPrice}`}
+      >
         {data.unitPrice}
       </div>
       <div className={`${ORDER_CLASS_TYPE.order_list_count}`}>
         <input
+          data-cy="input"
           className="order_list_count_input"
           type="number"
           value={data.count}
@@ -31,6 +41,7 @@ const OrderList = (props: IOrderListProps) => {
       </div>
       <div className={`${ORDER_CLASS_TYPE.order_list_etc}`}>
         <button
+          data-cy="remove_btn"
           className="order_list_btn"
           onClick={() => onOrderRemove(data.id)}
         >

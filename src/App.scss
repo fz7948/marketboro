@@ -210,7 +210,7 @@ body {
         animation: $animation;
       }
     }
-    &_itemContainer {
+    &_listContainer {
       overflow: overlay;
       height: calc(100% - 176px);
       background-color: #fffffa;
@@ -288,7 +288,7 @@ body {
           }
         }
       }
-      &_itemContainer {
+      &_listContainer {
         overflow: overlay;
         height: calc(100% - 114px);
       }

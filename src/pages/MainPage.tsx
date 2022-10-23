@@ -86,7 +86,7 @@ const MainPage = () => {
       <div className="order">
         <h3 className="order_title">주문 목록</h3>
         <OrderContent />
-        <div className="order_itemContainer">
+        <div className="order_listContainer">
           {orders.length ? (
             <>
               {orders.map((order) => (

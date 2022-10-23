@@ -8,6 +8,8 @@ module.exports = {
     // 경고만 뜨도록 설정
   ],
   extends: [
+    "plugin:cypress/recommended",
+    // @eslint-plugin-cypress 의 규칙을 사용한다.
     "plugin:react/recommended",
     // @eslint-plugin-react 의 규칙을 사용한다.
     "plugin:@typescript-eslint/recommended",
